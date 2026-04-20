@@ -92,7 +92,7 @@ export const products: Product[] = [
       { name: "Black", hex: "#0a0a0a" },
     ],
     sizes: ["S", "M", "L", "XL"],
-    images: ["/off-white-minimal-tee-flat-lay-studio.jpg", "/minimal-tee-neutral-background.jpg"],
+    images: ["/off-white-minimal-tee-flat-lay-studio.jpg"],
   },
   {
     id: "p-004",

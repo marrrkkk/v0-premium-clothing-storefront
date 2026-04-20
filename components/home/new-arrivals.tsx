@@ -3,7 +3,10 @@ import { products } from "@/lib/products"
 import { ProductGrid } from "@/components/commerce/product-grid"
 
 export function NewArrivals() {
-  const featured = products.slice(0, 4)
+  const wanted = ["graphic-tee", "utility-tee", "henley-shirt", "twill-cap"]
+  const featured = wanted
+    .map((slug) => products.find((p) => p.slug === slug))
+    .filter((p): p is NonNullable<typeof p> => Boolean(p))
   return (
     <section className="mx-auto w-full max-w-[1400px] px-4 py-12 md:px-8">
       <div className="mb-6 flex items-baseline justify-between">

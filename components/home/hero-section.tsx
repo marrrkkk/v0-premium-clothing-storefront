@@ -6,7 +6,7 @@ export function HeroSection() {
     <section className="relative w-full bg-secondary">
       <div className="relative aspect-[16/10] w-full overflow-hidden md:aspect-[21/9]">
         <Image
-          src="/fashion-editorial-male-model-wearing-dark-tee-and-.jpg"
+          src="/hero-studio-nord.jpg"
           alt="Model wearing Studio Nord essentials"
           fill
           priority
