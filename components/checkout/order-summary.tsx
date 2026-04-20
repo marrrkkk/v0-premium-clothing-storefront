@@ -23,13 +23,13 @@ export function OrderSummary({ shippingLabel, shippingCost = 0 }: Props) {
             key={`${item.productId}-${item.color}-${item.size}`}
             className="flex items-start gap-4 py-4 first:pt-0 last:pb-0"
           >
-            <div className="relative h-16 w-14 flex-shrink-0 overflow-hidden bg-secondary">
+            <div className="group relative h-16 w-14 flex-shrink-0 overflow-hidden bg-secondary">
               <Image
                 src={item.image || "/placeholder.svg"}
                 alt={item.name}
                 fill
                 sizes="56px"
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
               />
             </div>
             <div className="min-w-0 flex-1">

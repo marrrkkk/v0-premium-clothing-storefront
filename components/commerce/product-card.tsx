@@ -32,7 +32,7 @@ export function ProductCard({ product, priority, className, aspect = "portrait" 
           sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 280px"
           priority={priority}
           className={cn(
-            "object-cover transition-opacity duration-500",
+            "object-cover transition-all duration-700 ease-out group-hover:scale-[1.04]",
             secondary && "group-hover:opacity-0",
           )}
         />
@@ -43,7 +43,7 @@ export function ProductCard({ product, priority, className, aspect = "portrait" 
             fill
             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 280px"
             aria-hidden
-            className="pointer-events-none object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            className="pointer-events-none object-cover opacity-0 transition-all duration-700 ease-out group-hover:scale-[1.04] group-hover:opacity-100"
           />
         )}
         {product.badge && (

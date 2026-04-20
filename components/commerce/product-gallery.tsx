@@ -15,7 +15,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="relative w-full overflow-hidden border border-border bg-secondary">
+      <div className="group relative w-full overflow-hidden border border-border bg-secondary">
         <div className="aspect-[4/5] w-full">
           <Image
             src={current || "/placeholder.svg"}
@@ -23,7 +23,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
             fill
             priority
             sizes="(max-width: 768px) 100vw, 720px"
-            className="object-cover"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           />
         </div>
       </div>
@@ -37,8 +37,8 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
               aria-label={`Show image ${i + 1}`}
               aria-pressed={i === active}
               className={cn(
-                "relative aspect-square overflow-hidden border bg-secondary",
-                i === active ? "border-foreground" : "border-border",
+                "group relative aspect-square overflow-hidden border bg-secondary",
+                i === active ? "border-foreground" : "border-border hover:border-foreground",
               )}
             >
               <Image
@@ -46,7 +46,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
                 alt=""
                 fill
                 sizes="120px"
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
               />
             </button>
           ))}

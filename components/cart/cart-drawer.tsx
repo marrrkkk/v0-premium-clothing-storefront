@@ -81,14 +81,14 @@ export function CartDrawer() {
                     <Link
                       href={`/product/${item.slug}`}
                       onClick={closeCart}
-                      className="relative block h-20 w-16 flex-shrink-0 overflow-hidden bg-secondary"
+                      className="group relative block h-20 w-16 flex-shrink-0 overflow-hidden bg-secondary"
                     >
                       <Image
                         src={item.image || "/placeholder.svg"}
                         alt={item.name}
                         fill
                         sizes="64px"
-                        className="object-cover"
+                        className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
                       />
                     </Link>
                     <div className="flex min-w-0 flex-1 flex-col">

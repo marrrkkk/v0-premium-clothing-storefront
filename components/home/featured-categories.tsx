@@ -43,7 +43,7 @@ export function FeaturedCategories() {
               alt={c.label}
               fill
               sizes="(max-width: 768px) 50vw, 25vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
             />
             <div className="absolute inset-0 flex items-center justify-center bg-black/10">
               <span className="inline-flex items-center justify-center bg-background/95 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.22em] text-foreground">

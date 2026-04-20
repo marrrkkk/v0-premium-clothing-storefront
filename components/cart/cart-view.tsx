@@ -36,14 +36,14 @@ export function CartView() {
           >
             <Link
               href={`/product/${item.slug}`}
-              className="relative block aspect-[4/5] w-full overflow-hidden bg-secondary"
+              className="group relative block aspect-[4/5] w-full overflow-hidden bg-secondary"
             >
               <Image
                 src={item.image || "/placeholder.svg"}
                 alt={item.name}
                 fill
                 sizes="120px"
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
               />
             </Link>
 

@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export function HeroSection() {
   return (
-    <section className="relative w-full bg-secondary">
+    <section className="group relative w-full bg-secondary">
       <div className="relative aspect-[16/10] w-full overflow-hidden md:aspect-[21/9]">
         <Image
           src="/hero-studio-nord.jpg"
@@ -11,7 +11,7 @@ export function HeroSection() {
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.02]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/20 via-transparent to-transparent" />
         <div className="absolute inset-0 flex items-center">

@@ -50,7 +50,6 @@ export const products: Product[] = [
     images: [
       "/graphic-tee-black-flat-lay-studio.jpg",
       "/graphic-tee-back-editorial-model.jpg",
-      "/t-shirt-size-guide-diagram.jpg",
     ],
     badge: "New",
   },
