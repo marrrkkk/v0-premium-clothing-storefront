@@ -91,7 +91,7 @@ export const products: Product[] = [
       { name: "Black", hex: "#0a0a0a" },
     ],
     sizes: ["S", "M", "L", "XL"],
-    images: ["/off-white-minimal-tee-flat-lay-studio.jpg"],
+    images: ["/off-white-minimal-tee-flat-lay-studio.jpg", "/minimal-tee-hanging-detail.jpg"],
   },
   {
     id: "p-004",
@@ -107,7 +107,7 @@ export const products: Product[] = [
       { name: "Sand / Charcoal", hex: "#c9bfa6" },
     ],
     sizes: ["S", "M", "L", "XL"],
-    images: ["/striped-cotton-tee-minimalist.jpg"],
+    images: ["/striped-cotton-tee-minimalist.jpg", "/striped-tee-hanging-detail.jpg"],
     badge: "Best Seller",
   },
   {
@@ -124,7 +124,7 @@ export const products: Product[] = [
       { name: "Olive", hex: "#5a5a3a" },
     ],
     sizes: ["S", "M", "L", "XL"],
-    images: ["/sand-colored-pocket-tee.jpg"],
+    images: ["/sand-colored-pocket-tee.jpg", "/pocket-tee-hanging-detail.jpg"],
   },
   {
     id: "p-006",
@@ -140,7 +140,7 @@ export const products: Product[] = [
       { name: "Black", hex: "#0a0a0a" },
     ],
     sizes: ["S", "M", "L", "XL", "XXL"],
-    images: ["/charcoal-washed-heavyweight-tee.jpg"],
+    images: ["/charcoal-washed-heavyweight-tee.jpg", "/washed-tee-hanging-detail.jpg"],
   },
   {
     id: "p-007",
@@ -156,7 +156,7 @@ export const products: Product[] = [
       { name: "Stone", hex: "#c8c2b5" },
     ],
     sizes: ["S", "M", "L", "XL"],
-    images: ["/black-henley-shirt-minimalist-editorial.jpg"],
+    images: ["/black-henley-shirt-minimalist-editorial.jpg", "/black-henley-hanging-detail.jpg"],
   },
   {
     id: "p-008",
@@ -173,7 +173,7 @@ export const products: Product[] = [
       { name: "Olive", hex: "#5a5a3a" },
     ],
     sizes: ["One Size"],
-    images: ["/sand-cotton-cap-minimalist.jpg"],
+    images: ["/sand-cotton-cap-minimalist.jpg", "/sand-cotton-cap-side-angle.jpg"],
   },
   {
     id: "p-009",
@@ -189,7 +189,7 @@ export const products: Product[] = [
       { name: "Charcoal", hex: "#2a2a2a" },
     ],
     sizes: ["28", "30", "32", "34", "36"],
-    images: ["/stone-relaxed-trouser-minimalist.jpg"],
+    images: ["/stone-relaxed-trouser-minimalist.jpg", "/stone-trouser-hanging-detail.jpg"],
   },
   {
     id: "p-010",
@@ -206,7 +206,7 @@ export const products: Product[] = [
       { name: "Sand", hex: "#c9bfa6" },
     ],
     sizes: ["S", "M", "L", "XL"],
-    images: ["/black-canvas-work-jacket-editorial.jpg"],
+    images: ["/black-canvas-work-jacket-editorial.jpg", "/work-jacket-hanging-detail.jpg"],
   },
   {
     id: "p-011",
@@ -222,7 +222,7 @@ export const products: Product[] = [
       { name: "Stone", hex: "#c8c2b5" },
     ],
     sizes: ["S", "M", "L", "XL"],
-    images: ["/olive-overshirt-minimalist.jpg"],
+    images: ["/olive-overshirt-minimalist.jpg", "/olive-overshirt-hanging-detail.jpg"],
   },
   {
     id: "p-012",
@@ -239,7 +239,7 @@ export const products: Product[] = [
       { name: "Olive", hex: "#5a5a3a" },
     ],
     sizes: ["One Size"],
-    images: ["/charcoal-merino-beanie.jpg"],
+    images: ["/charcoal-merino-beanie.jpg", "/charcoal-beanie-folded-side.jpg"],
   },
   {
     id: "p-013",
@@ -255,7 +255,7 @@ export const products: Product[] = [
       { name: "Tan", hex: "#a07a52" },
     ],
     sizes: ["S", "M", "L"],
-    images: ["/black-leather-belt-minimalist.jpg"],
+    images: ["/black-leather-belt-minimalist.jpg", "/black-leather-belt-laid-flat.jpg"],
   },
   {
     id: "p-014",
@@ -271,7 +271,7 @@ export const products: Product[] = [
       { name: "Sand", hex: "#c9bfa6" },
     ],
     sizes: ["S", "M", "L", "XL"],
-    images: ["/off-white-linen-camp-collar-shirt.jpg"],
+    images: ["/off-white-linen-camp-collar-shirt.jpg", "/off-white-linen-shirt-hanging.jpg"],
   },
   {
     id: "p-015",
@@ -287,7 +287,7 @@ export const products: Product[] = [
       { name: "Charcoal", hex: "#2a2a2a" },
     ],
     sizes: ["One Size"],
-    images: ["/stone-wool-scarf-flat-lay.jpg"],
+    images: ["/stone-wool-scarf-flat-lay.jpg", "/stone-wool-scarf-draped.jpg"],
   },
   {
     id: "p-016",
@@ -303,7 +303,7 @@ export const products: Product[] = [
       { name: "Stone", hex: "#c8c2b5" },
     ],
     sizes: ["28", "30", "32", "34", "36"],
-    images: ["/charcoal-wide-leg-wool-trouser.jpg"],
+    images: ["/charcoal-wide-leg-wool-trouser.jpg", "/charcoal-wide-leg-trouser-hanging.jpg"],
   },
 ]
 

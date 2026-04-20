@@ -20,7 +20,7 @@ const categories = [
   {
     slug: "accessories",
     label: "Accessories",
-    image: "/minimalist-caps-belts-wallets-sand-tones.jpg",
+    image: "/minimalist-accessories-caps-scarves-beanies.jpg",
   },
 ]
 

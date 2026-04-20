@@ -30,7 +30,7 @@ export function Header({ showCategoryNav = true, border = true }: HeaderProps) {
           <button
             type="button"
             aria-label="Open menu"
-            className="inline-flex h-9 w-9 items-center justify-center text-foreground md:hidden"
+            className="inline-flex h-9 w-9 cursor-pointer items-center justify-center text-foreground transition-colors hover:text-muted-foreground md:hidden"
             onClick={() => setMobileOpen(true)}
           >
             <Menu className="h-5 w-5" strokeWidth={1.5} />
@@ -38,7 +38,7 @@ export function Header({ showCategoryNav = true, border = true }: HeaderProps) {
           <button
             type="button"
             aria-label="Search"
-            className="hidden h-9 w-9 items-center justify-center text-foreground md:inline-flex"
+            className="hidden h-9 w-9 cursor-pointer items-center justify-center text-foreground transition-colors hover:text-muted-foreground md:inline-flex"
             onClick={() => setSearchOpen((v) => !v)}
           >
             <Search className="h-[18px] w-[18px]" strokeWidth={1.5} />
