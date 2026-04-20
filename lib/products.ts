@@ -110,7 +110,10 @@ export const products: Product[] = [
       { name: "Sand / Charcoal", hex: "#c9bfa6" },
     ],
     sizes: ["S", "M", "L", "XL"],
-    images: ["/striped-cotton-tee-minimalist.jpg", "/striped-tee-hanging-detail.jpg"],
+    images: [
+      "/striped-tee-breton-black-white-flat-lay-v2.jpg",
+      "/striped-tee-breton-black-white-hanging-v2.jpg",
+    ],
     badge: "Best Seller",
   },
   {
