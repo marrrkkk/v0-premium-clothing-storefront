@@ -91,7 +91,10 @@ export const products: Product[] = [
       { name: "Black", hex: "#0a0a0a" },
     ],
     sizes: ["S", "M", "L", "XL"],
-    images: ["/off-white-minimal-tee-flat-lay-studio.jpg", "/minimal-tee-hanging-detail.jpg"],
+    images: [
+      "/minimal-tee-off-white-crew-flat-lay-v2.jpg",
+      "/minimal-tee-off-white-hanging-detail-v2.jpg",
+    ],
   },
   {
     id: "p-004",
@@ -124,7 +127,10 @@ export const products: Product[] = [
       { name: "Olive", hex: "#5a5a3a" },
     ],
     sizes: ["S", "M", "L", "XL"],
-    images: ["/sand-colored-pocket-tee.jpg", "/pocket-tee-hanging-detail.jpg"],
+    images: [
+      "/pocket-tee-sand-chest-pocket-flat-lay-v2.jpg",
+      "/pocket-tee-sand-hanging-pocket-detail-v2.jpg",
+    ],
   },
   {
     id: "p-006",
@@ -140,7 +146,10 @@ export const products: Product[] = [
       { name: "Black", hex: "#0a0a0a" },
     ],
     sizes: ["S", "M", "L", "XL", "XXL"],
-    images: ["/charcoal-washed-heavyweight-tee.jpg", "/washed-tee-hanging-detail.jpg"],
+    images: [
+      "/washed-tee-charcoal-heavyweight-flat-lay-v2.jpg",
+      "/washed-tee-charcoal-hanging-broken-in-v2.jpg",
+    ],
   },
   {
     id: "p-007",
@@ -156,7 +165,10 @@ export const products: Product[] = [
       { name: "Stone", hex: "#c8c2b5" },
     ],
     sizes: ["S", "M", "L", "XL"],
-    images: ["/black-henley-shirt-minimalist-editorial.jpg", "/black-henley-hanging-detail.jpg"],
+    images: [
+      "/henley-shirt-black-three-button-placket-flat-lay.jpg",
+      "/henley-shirt-black-hanging-placket-closeup.jpg",
+    ],
   },
   {
     id: "p-008",
@@ -189,7 +201,10 @@ export const products: Product[] = [
       { name: "Charcoal", hex: "#2a2a2a" },
     ],
     sizes: ["28", "30", "32", "34", "36"],
-    images: ["/stone-relaxed-trouser-minimalist.jpg", "/stone-trouser-hanging-detail.jpg"],
+    images: [
+      "/relaxed-trouser-stone-cotton-twill-flat-lay-v2.jpg",
+      "/relaxed-trouser-stone-hanging-clip-hanger-v2.jpg",
+    ],
   },
   {
     id: "p-010",
