@@ -13,7 +13,7 @@ export function HeroSection() {
           sizes="100vw"
           className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.02]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent sm:bg-gradient-to-r sm:from-background/25 sm:via-transparent sm:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/20 to-transparent sm:bg-gradient-to-r sm:from-background/50 sm:via-background/10 sm:to-transparent" />
         <div className="absolute inset-0 flex items-end sm:items-center">
           <div className="mx-auto w-full max-w-[1400px] px-5 pb-10 sm:px-8 sm:pb-0 md:px-12">
             <div className="max-w-md">
