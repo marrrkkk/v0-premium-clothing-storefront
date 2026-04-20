@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { NewsletterForm } from "@/components/layout/newsletter-form"
 
 const columns = [
   {
@@ -43,23 +44,7 @@ export function Footer() {
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
               Everyday staples made with premium fabrics and a focus on fit, comfort and longevity.
             </p>
-            <form
-              className="mt-8 flex max-w-sm items-center border border-border"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <input
-                type="email"
-                placeholder="Email address"
-                aria-label="Email address"
-                className="flex-1 bg-transparent px-3 py-3 text-sm outline-none placeholder:text-muted-foreground"
-              />
-              <button
-                type="submit"
-                className="h-full bg-foreground px-5 py-3 text-[11px] font-medium uppercase tracking-[0.18em] text-background"
-              >
-                Subscribe
-              </button>
-            </form>
+            <NewsletterForm />
           </div>
 
           <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
