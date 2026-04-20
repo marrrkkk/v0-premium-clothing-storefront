@@ -8,7 +8,7 @@ export function NewsletterForm() {
 
   return (
     <form
-      className="mt-8 flex max-w-sm items-center border border-border"
+      className="mt-6 flex w-full max-w-sm items-stretch border border-border md:mt-8"
       onSubmit={(e) => {
         e.preventDefault()
         if (!email) return
@@ -25,11 +25,11 @@ export function NewsletterForm() {
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Email address"
         aria-label="Email address"
-        className="flex-1 bg-transparent px-3 py-3 text-sm outline-none placeholder:text-muted-foreground"
+        className="min-w-0 flex-1 bg-transparent px-3 py-3 text-sm outline-none placeholder:text-muted-foreground"
       />
       <button
         type="submit"
-        className="h-full bg-foreground px-5 py-3 text-[11px] font-medium uppercase tracking-[0.18em] text-background"
+        className="flex-shrink-0 bg-foreground px-4 text-[11px] font-medium uppercase tracking-[0.18em] text-background sm:px-5"
       >
         Subscribe
       </button>

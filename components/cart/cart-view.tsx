@@ -27,12 +27,12 @@ export function CartView() {
   }
 
   return (
-    <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_360px]">
+    <div className="mt-8 grid grid-cols-1 gap-8 lg:mt-10 lg:grid-cols-[1fr_360px] lg:gap-10">
       <ul className="border-y border-border">
         {items.map((item) => (
           <li
             key={`${item.productId}-${item.color}-${item.size}`}
-            className="grid grid-cols-[96px_1fr_auto] gap-5 border-b border-border py-5 last:border-b-0 md:grid-cols-[120px_1fr_auto]"
+            className="grid grid-cols-[80px_1fr] gap-4 border-b border-border py-5 last:border-b-0 sm:grid-cols-[96px_1fr] sm:gap-5 md:grid-cols-[120px_1fr]"
           >
             <Link
               href={`/product/${item.slug}`}
@@ -47,27 +47,35 @@ export function CartView() {
               />
             </Link>
 
-            <div className="flex flex-col">
+            <div className="flex min-w-0 flex-col">
               <div className="flex items-start justify-between gap-3">
-                <div>
+                <div className="min-w-0">
                   <Link
                     href={`/product/${item.slug}`}
-                    className="text-[12px] font-medium uppercase tracking-[0.18em]"
+                    className="block text-[12px] font-medium uppercase leading-tight tracking-[0.18em]"
                   >
                     {item.name}
                   </Link>
                   <p className="mt-1 text-xs text-muted-foreground">
                     {item.color} / {item.size}
                   </p>
+                  <p className="mt-1 text-[12px] tabular-nums sm:hidden">
+                    {formatPrice(item.price * item.quantity)}
+                  </p>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => removeItem(item.productId, item.color, item.size)}
-                  aria-label={`Remove ${item.name}`}
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  <X className="h-4 w-4" strokeWidth={1.5} />
-                </button>
+                <div className="flex items-start gap-3">
+                  <span className="hidden text-right text-[12px] tabular-nums sm:block">
+                    {formatPrice(item.price * item.quantity)}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => removeItem(item.productId, item.color, item.size)}
+                    aria-label={`Remove ${item.name}`}
+                    className="-mr-1 inline-flex h-8 w-8 items-center justify-center text-muted-foreground hover:text-foreground"
+                  >
+                    <X className="h-4 w-4" strokeWidth={1.5} />
+                  </button>
+                </div>
               </div>
 
               <div className="mt-auto flex items-center gap-4 pt-4">
@@ -78,7 +86,7 @@ export function CartView() {
                     onClick={() =>
                       updateQuantity(item.productId, item.color, item.size, item.quantity - 1)
                     }
-                    className="inline-flex h-8 w-8 items-center justify-center"
+                    className="inline-flex h-9 w-9 items-center justify-center"
                   >
                     <Minus className="h-3.5 w-3.5" strokeWidth={1.5} />
                   </button>
@@ -91,22 +99,18 @@ export function CartView() {
                     onClick={() =>
                       updateQuantity(item.productId, item.color, item.size, item.quantity + 1)
                     }
-                    className="inline-flex h-8 w-8 items-center justify-center"
+                    className="inline-flex h-9 w-9 items-center justify-center"
                   >
                     <Plus className="h-3.5 w-3.5" strokeWidth={1.5} />
                   </button>
                 </div>
               </div>
             </div>
-
-            <div className="text-right text-[12px] tabular-nums">
-              {formatPrice(item.price * item.quantity)}
-            </div>
           </li>
         ))}
       </ul>
 
-      <aside className="border border-border p-6">
+      <aside className="border border-border p-5 sm:p-6">
         <h2 className="text-[11px] font-medium uppercase tracking-[0.22em]">Order Summary</h2>
         <dl className="mt-5 space-y-3 text-sm">
           <div className="flex items-center justify-between">
@@ -130,11 +134,11 @@ export function CartView() {
           <input
             type="text"
             placeholder="Enter promo code"
-            className="flex-1 bg-transparent px-3 py-2.5 text-sm outline-none placeholder:text-muted-foreground"
+            className="min-w-0 flex-1 bg-transparent px-3 py-2.5 text-sm outline-none placeholder:text-muted-foreground"
           />
           <button
             type="submit"
-            className="border-l border-border px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.18em]"
+            className="flex-shrink-0 border-l border-border px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.18em]"
           >
             Apply
           </button>

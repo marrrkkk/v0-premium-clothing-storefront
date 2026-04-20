@@ -35,13 +35,13 @@ const columns = [
 export function Footer() {
   return (
     <footer className="border-t border-border bg-background">
-      <div className="mx-auto w-full max-w-[1400px] px-4 py-16 md:px-8">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.2fr_2fr]">
+      <div className="mx-auto w-full max-w-[1400px] px-4 py-10 sm:px-6 md:px-8 md:py-16">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.2fr_2fr] md:gap-12">
           <div>
             <div className="inline-flex items-center justify-center border border-foreground px-4 py-1.5 text-[11px] font-semibold tracking-[0.22em]">
               STUDIO NORD
             </div>
-            <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground md:mt-6">
               Everyday staples made with premium fabrics and a focus on fit, comfort and longevity.
             </p>
             <NewsletterForm />
@@ -53,7 +53,7 @@ export function Footer() {
                 <h4 className="text-[11px] font-medium uppercase tracking-[0.22em] text-foreground">
                   {col.title}
                 </h4>
-                <ul className="mt-5 space-y-3">
+                <ul className="mt-4 space-y-3 md:mt-5">
                   {col.links.map((l) => (
                     <li key={l.href}>
                       <Link
@@ -70,7 +70,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
+        <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground md:mt-16 md:flex-row md:items-center">
           <p>© {new Date().getFullYear()} Studio Nord. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="hover:text-foreground">
