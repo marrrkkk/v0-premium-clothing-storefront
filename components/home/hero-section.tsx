@@ -17,7 +17,7 @@ export function HeroSection() {
         <div className="absolute inset-0 flex items-end sm:items-center">
           <div className="mx-auto w-full max-w-[1400px] px-5 pb-10 sm:px-8 sm:pb-0 md:px-12">
             <div className="max-w-md">
-              <h1 className="text-pretty text-[2rem] font-medium uppercase leading-[1.05] tracking-[-0.01em] text-white sm:text-4xl md:text-5xl lg:text-6xl">
+              <h1 className="text-pretty text-[2rem] font-medium uppercase leading-[1.05] tracking-[-0.01em] text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
                 Timeless Essentials.
                 <br className="hidden sm:inline" />
                 <span className="sm:hidden"> </span>
