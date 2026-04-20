@@ -17,7 +17,7 @@ export function HeroSection() {
         <div className="absolute inset-0 flex items-end sm:items-center">
           <div className="mx-auto w-full max-w-[1400px] px-5 pb-10 sm:px-8 sm:pb-0 md:px-12">
             <div className="max-w-md">
-              <h1 className="text-pretty text-[2rem] font-medium uppercase leading-[1.05] tracking-[-0.01em] text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
+              <h1 className="text-pretty text-[2rem] font-medium uppercase leading-[1.05] tracking-[-0.01em] text-foreground sm:text-4xl md:text-5xl lg:text-6xl" style={{ wordSpacing: '9999px' }}>
                 Timeless Essentials.
                 <br className="hidden sm:inline" />
                 <span className="sm:hidden"> </span>
@@ -26,7 +26,7 @@ export function HeroSection() {
               <div className="mt-6 sm:mt-8">
                 <Link
                   href="/shop/new-in"
-                  className="inline-flex w-full items-center justify-center bg-foreground px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-background hover:bg-foreground/90 sm:w-auto"
+                  className="inline-flex w-full items-center justify-center bg-foreground px-8 py-4 text-sm font-medium uppercase tracking-[0.22em] text-background hover:bg-foreground/90 sm:w-auto sm:px-8 sm:py-3.5 sm:text-[11px]"
                 >
                   Shop New In
                 </Link>
