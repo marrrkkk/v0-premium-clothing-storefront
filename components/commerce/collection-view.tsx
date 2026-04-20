@@ -40,8 +40,20 @@ export function CollectionView({ initialProducts }: Props) {
     return list
   }, [initialProducts, filters, sort])
 
+  // Lock body scroll when mobile filters open
+  React.useEffect(() => {
+    if (mobileFiltersOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [mobileFiltersOpen])
+
   return (
-    <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[220px_1fr]">
+    <div className="mt-6 grid grid-cols-1 gap-8 md:mt-8 lg:grid-cols-[220px_1fr]">
       {/* Desktop sidebar */}
       <div className="hidden lg:block">
         <FilterSidebar value={filters} onChange={setFilters} />
@@ -49,8 +61,8 @@ export function CollectionView({ initialProducts }: Props) {
 
       {/* Right: toolbar + grid */}
       <div>
-        <div className="mb-6 flex items-center justify-between border-y border-border py-3 text-[11px] uppercase tracking-[0.18em]">
-          <div className="flex items-center gap-6">
+        <div className="mb-5 flex items-center justify-between border-y border-border py-3 text-[11px] uppercase tracking-[0.18em] md:mb-6">
+          <div className="flex items-center gap-4 md:gap-6">
             <button
               type="button"
               className="inline-flex items-center gap-2 lg:hidden"
@@ -59,18 +71,26 @@ export function CollectionView({ initialProducts }: Props) {
               <SlidersHorizontal className="h-3.5 w-3.5" strokeWidth={1.5} />
               Filter
             </button>
-            <div className="relative hidden items-center gap-1 lg:flex">
-              <span className="text-muted-foreground">Sort:</span>
+            <div className="relative flex items-center gap-1">
+              <span className="hidden text-muted-foreground sm:inline">Sort:</span>
               <button
                 type="button"
                 onClick={() => setSortOpen((v) => !v)}
                 className="inline-flex items-center gap-2 text-foreground"
+                aria-haspopup="listbox"
+                aria-expanded={sortOpen}
               >
-                {sortOptions.find((o) => o.value === sort)?.label}
+                <span className="hidden sm:inline">
+                  {sortOptions.find((o) => o.value === sort)?.label}
+                </span>
+                <span className="sm:hidden">Sort</span>
                 <span aria-hidden>▾</span>
               </button>
               {sortOpen && (
-                <ul className="absolute left-0 top-full z-10 mt-2 min-w-[200px] border border-border bg-background py-1 shadow-sm">
+                <ul
+                  role="listbox"
+                  className="absolute left-0 top-full z-10 mt-2 min-w-[180px] border border-border bg-background py-1 shadow-sm"
+                >
                   {sortOptions.map((o) => (
                     <li key={o.value}>
                       <button
@@ -110,23 +130,26 @@ export function CollectionView({ initialProducts }: Props) {
 
       {/* Mobile filters drawer */}
       {mobileFiltersOpen && (
-        <div className="fixed inset-0 z-50 bg-background lg:hidden">
-          <div className="flex items-center justify-between border-b border-border px-4 py-3">
+        <div className="fixed inset-0 z-50 flex flex-col bg-background lg:hidden">
+          <div className="flex flex-shrink-0 items-center justify-between border-b border-border px-4 py-3">
             <span className="text-[11px] uppercase tracking-[0.22em]">Filter</span>
             <button
               type="button"
               aria-label="Close filters"
               onClick={() => setMobileFiltersOpen(false)}
+              className="inline-flex h-10 w-10 items-center justify-center"
             >
               <X className="h-5 w-5" strokeWidth={1.5} />
             </button>
           </div>
-          <div className="px-4 py-4">
+          <div className="flex-1 overflow-y-auto px-4 py-4">
             <FilterSidebar value={filters} onChange={setFilters} />
+          </div>
+          <div className="flex-shrink-0 border-t border-border px-4 py-4">
             <button
               type="button"
               onClick={() => setMobileFiltersOpen(false)}
-              className="mt-6 inline-flex w-full items-center justify-center bg-foreground px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-background"
+              className="inline-flex w-full items-center justify-center bg-foreground px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-background"
             >
               Apply Filters
             </button>

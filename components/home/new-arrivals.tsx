@@ -8,8 +8,8 @@ export function NewArrivals() {
     .map((slug) => products.find((p) => p.slug === slug))
     .filter((p): p is NonNullable<typeof p> => Boolean(p))
   return (
-    <section className="mx-auto w-full max-w-[1400px] px-4 py-12 md:px-8">
-      <div className="mb-6 flex items-baseline justify-between">
+    <section className="mx-auto w-full max-w-[1400px] px-4 py-10 sm:px-6 md:px-8 md:py-12">
+      <div className="mb-5 flex items-baseline justify-between md:mb-6">
         <h2 className="text-[11px] font-medium uppercase tracking-[0.22em]">New Arrivals</h2>
         <Link
           href="/shop/new-in"

@@ -14,7 +14,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
   const current = images[active] ?? images[0] ?? "/placeholder.svg"
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-3 sm:gap-4">
       <div className="group relative w-full overflow-hidden border border-border bg-secondary">
         <div className="aspect-[4/5] w-full">
           <Image
@@ -28,7 +28,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
         </div>
       </div>
       {images.length > 1 && (
-        <div className="grid grid-cols-4 gap-3 sm:grid-cols-5">
+        <div className="grid grid-cols-4 gap-2 sm:grid-cols-5 sm:gap-3">
           {images.map((src, i) => (
             <button
               key={`${src}-${i}`}

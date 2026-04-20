@@ -2,9 +2,11 @@
 
 import * as React from "react"
 import { useRouter } from "next/navigation"
+import { ChevronDown } from "lucide-react"
 import { CheckoutStepper, type CheckoutStep } from "@/components/checkout/checkout-stepper"
 import { OrderSummary } from "@/components/checkout/order-summary"
 import { useCart } from "@/components/cart/cart-provider"
+import { formatPrice } from "@/lib/products"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 
@@ -47,7 +49,7 @@ const deliveryOptions: {
 
 export function CheckoutFlow() {
   const router = useRouter()
-  const { items, clear } = useCart()
+  const { items, subtotal, clear } = useCart()
   const [step, setStep] = React.useState<CheckoutStep>(1)
 
   const [shipping, setShipping] = React.useState<ShippingInfo>({
@@ -65,8 +67,10 @@ export function CheckoutFlow() {
   const [delivery, setDelivery] = React.useState<DeliveryMethod>("standard")
   const [payment, setPayment] = React.useState<PaymentMethod>("card")
   const [agreed, setAgreed] = React.useState(false)
+  const [summaryOpen, setSummaryOpen] = React.useState(false)
 
   const deliveryOption = deliveryOptions.find((o) => o.value === delivery)!
+  const total = subtotal + deliveryOption.price
 
   function handlePlaceOrder() {
     // Fake place order
@@ -108,7 +112,38 @@ export function CheckoutFlow() {
         <CheckoutStepper current={step} />
       </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_360px]">
+      {/* Mobile-only: collapsible order summary at the top */}
+      <div className="mt-8 border-y border-border lg:hidden">
+        <button
+          type="button"
+          onClick={() => setSummaryOpen((v) => !v)}
+          className="flex w-full items-center justify-between px-1 py-4 text-left"
+          aria-expanded={summaryOpen}
+          aria-controls="mobile-order-summary"
+        >
+          <span className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.22em]">
+            {summaryOpen ? "Hide Order Summary" : "Show Order Summary"}
+            <ChevronDown
+              className={cn(
+                "h-3.5 w-3.5 transition-transform duration-200",
+                summaryOpen && "rotate-180",
+              )}
+              strokeWidth={1.5}
+            />
+          </span>
+          <span className="text-sm font-medium tabular-nums">{formatPrice(total)}</span>
+        </button>
+        {summaryOpen && (
+          <div id="mobile-order-summary" className="pb-4">
+            <OrderSummary
+              shippingLabel={deliveryOption.title}
+              shippingCost={deliveryOption.price}
+            />
+          </div>
+        )}
+      </div>
+
+      <div className="mt-8 grid grid-cols-1 gap-10 lg:mt-10 lg:grid-cols-[1fr_360px]">
         <div>
           {step === 1 && (
             <StepShipping
@@ -146,10 +181,13 @@ export function CheckoutFlow() {
           )}
         </div>
 
-        <OrderSummary
-          shippingLabel={deliveryOption.title}
-          shippingCost={deliveryOption.price}
-        />
+        {/* Desktop-only sidebar */}
+        <div className="hidden lg:block">
+          <OrderSummary
+            shippingLabel={deliveryOption.title}
+            shippingCost={deliveryOption.price}
+          />
+        </div>
       </div>
     </div>
   )
@@ -334,20 +372,20 @@ function StepDelivery({
             <label
               key={o.value}
               className={cn(
-                "flex cursor-pointer items-center justify-between border px-4 py-4",
+                "flex cursor-pointer items-center justify-between gap-3 border px-4 py-4",
                 selected ? "border-foreground" : "border-border",
               )}
             >
-              <span className="flex items-center gap-3">
+              <span className="flex min-w-0 items-center gap-3">
                 <span
                   className={cn(
-                    "relative inline-flex h-4 w-4 items-center justify-center rounded-full border",
+                    "relative inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full border",
                     selected ? "border-foreground" : "border-border",
                   )}
                 >
                   {selected && <span className="h-2 w-2 rounded-full bg-foreground" />}
                 </span>
-                <span>
+                <span className="min-w-0">
                   <span className="block text-[12px] font-medium uppercase tracking-[0.18em]">
                     {o.title}
                   </span>
@@ -356,7 +394,7 @@ function StepDelivery({
                   </span>
                 </span>
               </span>
-              <span className="text-sm tabular-nums">
+              <span className="flex-shrink-0 text-sm tabular-nums">
                 {o.price === 0 ? "FREE" : `PHP ${o.price.toFixed(2)}`}
               </span>
               <input
@@ -421,7 +459,7 @@ function StepPayment({
           selected={value === "card"}
           onSelect={() => onChange("card")}
           right={
-            <div className="flex items-center gap-1.5">
+            <div className="hidden items-center gap-1.5 sm:flex">
               <Badge>VISA</Badge>
               <Badge>MC</Badge>
               <Badge>AMEX</Badge>
@@ -624,11 +662,11 @@ function PaymentOption({
         selected ? "border-foreground" : "border-border",
       )}
     >
-      <label className="flex cursor-pointer items-center justify-between px-4 py-4">
-        <span className="flex items-center gap-3">
+      <label className="flex cursor-pointer items-center justify-between gap-3 px-4 py-4">
+        <span className="flex min-w-0 items-center gap-3">
           <span
             className={cn(
-              "relative inline-flex h-4 w-4 items-center justify-center rounded-full border",
+              "relative inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full border",
               selected ? "border-foreground" : "border-border",
             )}
           >

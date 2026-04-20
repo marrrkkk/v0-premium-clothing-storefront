@@ -29,7 +29,7 @@ export function ProductCard({ product, priority, className, aspect = "portrait" 
           src={primary || "/placeholder.svg"}
           alt={product.name}
           fill
-          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 280px"
+          sizes="(max-width: 640px) 50vw, (max-width: 1200px) 33vw, 280px"
           priority={priority}
           className={cn(
             "object-cover transition-all duration-700 ease-out group-hover:scale-[1.04]",
@@ -41,22 +41,24 @@ export function ProductCard({ product, priority, className, aspect = "portrait" 
             src={secondary || "/placeholder.svg"}
             alt=""
             fill
-            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 280px"
+            sizes="(max-width: 640px) 50vw, (max-width: 1200px) 33vw, 280px"
             aria-hidden
             className="pointer-events-none object-cover opacity-0 transition-all duration-700 ease-out group-hover:scale-[1.04] group-hover:opacity-100"
           />
         )}
         {product.badge && (
-          <span className="absolute left-3 top-3 inline-flex items-center bg-background px-2 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-foreground">
+          <span className="absolute left-2 top-2 inline-flex items-center bg-background px-2 py-1 text-[9px] font-medium uppercase tracking-[0.16em] text-foreground sm:left-3 sm:top-3 sm:text-[10px] sm:tracking-[0.18em]">
             {product.badge}
           </span>
         )}
       </div>
-      <div className="mt-4">
-        <h3 className="text-[12px] font-medium uppercase tracking-[0.18em] text-foreground">
+      <div className="mt-3 sm:mt-4">
+        <h3 className="text-[11px] font-medium uppercase leading-tight tracking-[0.16em] text-foreground sm:text-[12px] sm:tracking-[0.18em]">
           {product.name}
         </h3>
-        <p className="mt-1 text-[12px] text-muted-foreground">{formatPrice(product.price)}</p>
+        <p className="mt-1 text-[11px] text-muted-foreground sm:text-[12px]">
+          {formatPrice(product.price)}
+        </p>
       </div>
     </Link>
   )

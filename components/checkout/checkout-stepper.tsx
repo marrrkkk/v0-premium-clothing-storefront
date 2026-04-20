@@ -10,15 +10,41 @@ const steps: { step: CheckoutStep; label: string }[] = [
 ]
 
 export function CheckoutStepper({ current }: { current: CheckoutStep }) {
+  const currentLabel = steps.find((s) => s.step === current)?.label ?? ""
+
   return (
     <nav aria-label="Checkout progress">
-      <ol className="grid grid-cols-4 items-start">
+      {/* Mobile: compact indicator with current step text */}
+      <div className="sm:hidden">
+        <div className="flex items-center justify-between gap-3">
+          <span className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+            Step {current} of 4
+          </span>
+          <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-foreground">
+            {currentLabel}
+          </span>
+        </div>
+        <div className="mt-3 flex h-0.5 items-stretch gap-1.5">
+          {steps.map((s) => (
+            <span
+              key={s.step}
+              aria-hidden
+              className={cn(
+                "flex-1",
+                s.step <= current ? "bg-foreground" : "bg-border",
+              )}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop: full circle+label stepper */}
+      <ol className="hidden grid-cols-4 items-start sm:grid">
         {steps.map((s, i) => {
           const active = s.step === current
           const completed = s.step < current
           return (
             <li key={s.step} className="relative flex flex-col items-center">
-              {/* Connector */}
               {i > 0 && (
                 <span
                   aria-hidden
