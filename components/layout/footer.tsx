@@ -1,0 +1,105 @@
+import Link from "next/link"
+
+const columns = [
+  {
+    title: "Shop",
+    links: [
+      { href: "/shop/new-in", label: "New In" },
+      { href: "/shop/mens", label: "Mens" },
+      { href: "/shop/womens", label: "Womens" },
+      { href: "/shop/essentials", label: "Essentials" },
+      { href: "/shop/accessories", label: "Accessories" },
+    ],
+  },
+  {
+    title: "Support",
+    links: [
+      { href: "/help", label: "Help Center" },
+      { href: "/shipping", label: "Shipping & Returns" },
+      { href: "/size-guide", label: "Size Guide" },
+      { href: "/contact", label: "Contact" },
+    ],
+  },
+  {
+    title: "Studio",
+    links: [
+      { href: "/about", label: "About" },
+      { href: "/journal", label: "Journal" },
+      { href: "/stores", label: "Stores" },
+      { href: "/sustainability", label: "Sustainability" },
+    ],
+  },
+]
+
+export function Footer() {
+  return (
+    <footer className="border-t border-border bg-background">
+      <div className="mx-auto w-full max-w-[1400px] px-4 py-16 md:px-8">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.2fr_2fr]">
+          <div>
+            <div className="inline-flex items-center justify-center border border-foreground px-4 py-1.5 text-[11px] font-semibold tracking-[0.22em]">
+              STUDIO NORD
+            </div>
+            <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
+              Everyday staples made with premium fabrics and a focus on fit, comfort and longevity.
+            </p>
+            <form
+              className="mt-8 flex max-w-sm items-center border border-border"
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <input
+                type="email"
+                placeholder="Email address"
+                aria-label="Email address"
+                className="flex-1 bg-transparent px-3 py-3 text-sm outline-none placeholder:text-muted-foreground"
+              />
+              <button
+                type="submit"
+                className="h-full bg-foreground px-5 py-3 text-[11px] font-medium uppercase tracking-[0.18em] text-background"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
+            {columns.map((col) => (
+              <div key={col.title}>
+                <h4 className="text-[11px] font-medium uppercase tracking-[0.22em] text-foreground">
+                  {col.title}
+                </h4>
+                <ul className="mt-5 space-y-3">
+                  {col.links.map((l) => (
+                    <li key={l.href}>
+                      <Link
+                        href={l.href}
+                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
+          <p>© {new Date().getFullYear()} Studio Nord. All rights reserved.</p>
+          <div className="flex items-center gap-6">
+            <Link href="/privacy" className="hover:text-foreground">
+              Privacy
+            </Link>
+            <Link href="/terms" className="hover:text-foreground">
+              Terms
+            </Link>
+            <Link href="/cookies" className="hover:text-foreground">
+              Cookies
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
