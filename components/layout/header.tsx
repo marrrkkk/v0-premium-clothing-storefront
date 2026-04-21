@@ -45,7 +45,7 @@ export function Header({ showCategoryNav = true, border = true }: HeaderProps) {
             className="inline-flex h-10 w-10 cursor-pointer items-center justify-center text-foreground transition-colors hover:text-muted-foreground md:hidden"
             onClick={() => setMobileOpen(true)}
           >
-            <Menu className="h-5 w-5" strokeWidth={1.5} />
+            <Menu className="h-5 w-5 animate-hamburger-in" strokeWidth={1.5} />
           </button>
           <button
             type="button"
@@ -130,7 +130,7 @@ export function Header({ showCategoryNav = true, border = true }: HeaderProps) {
               onClick={() => setMobileOpen(false)}
               className="inline-flex h-10 w-10 items-center justify-center"
             >
-              <X className="h-5 w-5" strokeWidth={1.5} />
+              <X className="h-5 w-5 animate-hamburger-out" strokeWidth={1.5} />
             </button>
           </div>
           <nav className="flex flex-col px-4 py-4">
