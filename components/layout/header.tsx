@@ -117,55 +117,68 @@ export function Header({ showCategoryNav = true, border = true }: HeaderProps) {
 
       {showCategoryNav && <CategoryNav />}
 
+      {/* Mobile menu overlay */}
+      <div
+        aria-hidden={!mobileOpen}
+        onClick={() => setMobileOpen(false)}
+        className={cn(
+          "fixed inset-0 z-50 bg-foreground/20 transition-opacity duration-300",
+          mobileOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
+        )}
+      />
+
       {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-background">
-          <div className="flex h-14 items-center justify-between border-b border-border px-3 sm:h-16 sm:px-4">
-            <span className="inline-flex items-center justify-center border border-foreground px-3 py-1 text-[10px] font-semibold tracking-[0.2em] sm:px-4 sm:py-1.5 sm:text-[11px] sm:tracking-[0.22em]">
-              STUDIO NORD
-            </span>
-            <button
-              type="button"
-              aria-label="Close menu"
-              onClick={() => setMobileOpen(false)}
-              className="inline-flex h-10 w-10 items-center justify-center"
-            >
-              <X className="h-5 w-5" strokeWidth={1.5} />
-            </button>
-          </div>
-          <nav className="flex flex-col px-4 py-4">
-            {[
-              { href: "/shop/new-in", label: "New In" },
-              { href: "/shop/mens", label: "Mens" },
-              { href: "/shop/womens", label: "Womens" },
-              { href: "/shop/essentials", label: "Essentials" },
-              { href: "/shop/accessories", label: "Accessories" },
-              { href: "/shop/collections", label: "Collections" },
-              { href: "/journal", label: "Journal" },
-              { href: "/about", label: "About" },
-            ].map((i) => (
-              <Link
-                key={i.href}
-                href={i.href}
-                onClick={() => setMobileOpen(false)}
-                className="border-b border-border py-4 text-sm uppercase tracking-[0.18em]"
-              >
-                {i.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="mt-auto border-t border-border px-4 py-5">
-            <Link
-              href="/account"
-              onClick={() => setMobileOpen(false)}
-              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-muted-foreground"
-            >
-              <User className="h-4 w-4" strokeWidth={1.5} />
-              Account
-            </Link>
-          </div>
+      <div
+        className={cn(
+          "fixed left-0 top-0 z-50 flex h-full w-full flex-col overflow-y-auto bg-background transition-transform duration-300",
+          mobileOpen ? "translate-x-0" : "-translate-x-full",
+        )}
+      >
+        <div className="flex h-14 items-center justify-between border-b border-border px-3 sm:h-16 sm:px-4">
+          <span className="inline-flex items-center justify-center border border-foreground px-3 py-1 text-[10px] font-semibold tracking-[0.2em] sm:px-4 sm:py-1.5 sm:text-[11px] sm:tracking-[0.22em]">
+            STUDIO NORD
+          </span>
+          <button
+            type="button"
+            aria-label="Close menu"
+            onClick={() => setMobileOpen(false)}
+            className="inline-flex h-10 w-10 items-center justify-center"
+          >
+            <X className="h-5 w-5" strokeWidth={1.5} />
+          </button>
         </div>
-      )}
+        <nav className="flex flex-col px-4 py-4">
+          {[
+            { href: "/shop/new-in", label: "New In" },
+            { href: "/shop/mens", label: "Mens" },
+            { href: "/shop/womens", label: "Womens" },
+            { href: "/shop/essentials", label: "Essentials" },
+            { href: "/shop/accessories", label: "Accessories" },
+            { href: "/shop/collections", label: "Collections" },
+            { href: "/journal", label: "Journal" },
+            { href: "/about", label: "About" },
+          ].map((i) => (
+            <Link
+              key={i.href}
+              href={i.href}
+              onClick={() => setMobileOpen(false)}
+              className="border-b border-border py-4 text-sm uppercase tracking-[0.18em]"
+            >
+              {i.label}
+            </Link>
+          ))}
+        </nav>
+        <div className="mt-auto border-t border-border px-4 py-5">
+          <Link
+            href="/account"
+            onClick={() => setMobileOpen(false)}
+            className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-muted-foreground"
+          >
+            <User className="h-4 w-4" strokeWidth={1.5} />
+            Account
+          </Link>
+        </div>
+      </div>
     </header>
   )
 }

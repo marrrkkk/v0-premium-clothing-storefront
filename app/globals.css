@@ -172,4 +172,35 @@
   .hairline {
     border-width: 1px;
   }
+
+  /* Hamburger animation */
+  @keyframes hamburger-in {
+    from {
+      opacity: 0;
+      transform: rotate(-90deg) scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+  }
+
+  @keyframes hamburger-out {
+    from {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: rotate(90deg) scale(0.8);
+    }
+  }
+
+  .animate-hamburger-in {
+    animation: hamburger-in 0.3s ease-out;
+  }
+
+  .animate-hamburger-out {
+    animation: hamburger-out 0.3s ease-out;
+  }
 }
